@@ -1,0 +1,11 @@
+{
+  "title": "Meteored",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Meteored Settings",
+        "description": "Insert API key and city hash"
+      }
+    }
+  }
+}
