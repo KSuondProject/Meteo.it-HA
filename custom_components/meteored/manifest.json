@@ -1,10 +1,9 @@
 {
   "domain": "meteored",
-  "name": "Meteored",
+  "name": "Meteo.it (Meteored)",
   "version": "1.0.0",
-  "documentation": "https://dashboard.meteored.com",
-  "requirements": [],
-  "codeowners": [],
   "config_flow": true,
-  "iot_class": "cloud_polling"
+  "documentation": "https://github.com/KSuondProject/Meteo.it-HA",
+  "requirements": [],
+  "codeowners": ["@KSuondProject"]
 }
