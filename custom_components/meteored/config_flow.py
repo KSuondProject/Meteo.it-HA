@@ -1,8 +1,7 @@
-from homeassistant import config_entries
 import voluptuous as vol
+from homeassistant import config_entries
 
-from .const import DOMAIN, CONF_API_KEY, CONF_HASH
-
+DOMAIN = "meteored"
 
 class MeteoredConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
@@ -11,15 +10,18 @@ class MeteoredConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             return self.async_create_entry(
                 title="Meteored",
-                data=user_input,
+                data={
+                    "api_key": user_input["api_key"],
+                    "location_hash": user_input["location_hash"],
+                },
             )
+
+        schema = vol.Schema({
+            vol.Required("api_key"): str,
+            vol.Required("location_hash"): str,
+        })
 
         return self.async_show_form(
             step_id="user",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(CONF_API_KEY): str,
-                    vol.Required(CONF_HASH): str,
-                }
-            ),
+            data_schema=schema,
         )
